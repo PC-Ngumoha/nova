@@ -1,0 +1,51 @@
+/* FONT FACE DEFINITIONS FOR EXO 2*/
+
+// FIXME: Utilized variable font-files to make app more optimized and make styling the app more intuitive
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('../../assets/fonts/exo-2/Exo2-VariableFont_wght.ttf')
+    format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('../../assets/fonts/exo-2/Exo2-Italic-VariableFont_wght.ttf')
+    format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* FONT FACE DEFINITIONS FOR ORBITRON */
+
+// FIXME: Variable font-files were not provided, so we had to fall back to static files.
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../../assets/fonts/orbitron/orbitron-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../../assets/fonts/orbitron/orbitron-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../../assets/fonts/orbitron/orbitron-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../../assets/fonts/orbitron/orbitron-black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
