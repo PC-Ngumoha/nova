@@ -10,8 +10,8 @@
     "lint:eslint:fix": "yarn lint:eslint --fix",
     "lint:stylelint": "stylelint ./src/**/*.{css,scss}",
     "lint:stylelint:fix": "yarn lint:stylelint --fix",
-    "lint": "yarn lint:eslint && yarn lint:stylelint",
-    "lint:fix": "yarn lint:eslint:fix && yarn lint:stylelint:fix",
+    "lint": "yarn lint:eslint & yarn lint:stylelint",
+    "lint:fix": "yarn lint:eslint:fix & yarn lint:stylelint:fix",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -30,12 +30,15 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.9.0",
+    "node-sass": "^9.0.0",
     "prettier": "^3.3.3",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-prettier": "^5.0.2",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vite-plugin-checker": "^0.7.2",
+    "vite-plugin-pretty-module-classnames": "^1.2.0"
   }
 }
