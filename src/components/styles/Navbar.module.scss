@@ -1,0 +1,66 @@
+@import '../../styles/main';
+
+// Following a Mobile first approach to styling the webpage
+
+/* STYLES FOR NAVBAR MAIN COMPONENT */
+.navbar {
+  font-family: $heading_font_stack;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+    h1 {
+      margin-left: 0.3rem;
+    }
+  }
+
+  .pages {
+    flex: 1;
+    display: none;
+    // display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  .menubar {
+    flex: 1;
+    display: flex;
+    padding-right: 2rem;
+    align-items: center;
+    justify-content: end;
+    font-size: 3rem;
+  }
+}
+
+/* STYLES FOR NAVBAR SIDEBAR COMPONENT */
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0 0;
+  background-color: $color_bg_dark;
+  color: $color_white;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: all 1.2s cubic-bezier(0.25, 1, 0, 0.25);
+
+  transform: translateX(100%);
+}
+
+.showSidebar {
+  transform: translateX(0);
+}

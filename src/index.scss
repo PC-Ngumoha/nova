@@ -1,10 +1,14 @@
-@import './styles/main';
+// @import './styles/main';
 
 * {
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  font-family: $heading_font_stack;
+html {
+  font-size: 10px;
 }
+
+// h1 {
+//   font-family: $heading_font_stack;
+// }
