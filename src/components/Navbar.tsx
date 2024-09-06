@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { GiGalaxy } from 'react-icons/gi';
 import { CgMenuGridO } from 'react-icons/cg';
+import { IoCloseCircleOutline } from 'react-icons/io5';
 import { concatClasses } from '@/utils/helpers';
 
 import classNames from '@/components/styles/Navbar.module.scss';
@@ -66,8 +67,21 @@ const SideBar = ({
           : classNames.sidebar
       }
     >
-      <button onClick={() => handleClose()}>Close Me</button>
-      <h1>Sidebar is here to save the day again</h1>
+      {/* <button onClick={() => handleClose()}>Close Me</button>
+       */}
+      <IoCloseCircleOutline
+        onClick={() => handleClose()}
+        className={classNames.closeButton}
+      />
+      <div className={classNames.logo}>
+        <GiGalaxy />
+        <h1>Nova</h1>
+      </div>
+      <div className={classNames.pages}>
+        {pageLinks.map((item) => (
+          <span key={item.id}>{item.name}</span>
+        ))}
+      </div>
     </div>
   );
 };
