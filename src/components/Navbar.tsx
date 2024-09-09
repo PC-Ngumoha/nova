@@ -2,30 +2,37 @@ import { FC, useEffect, useState } from 'react';
 import { GiGalaxy } from 'react-icons/gi';
 import { CgMenuGridO } from 'react-icons/cg';
 import { IoCloseCircleOutline } from 'react-icons/io5';
-import { concatClasses } from '@/utils/helpers';
+import { BiBookmarkHeart } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
+import { concatClasses } from '@/utils/helpers';
 import classNames from '@/components/styles/Navbar.module.scss';
 
 const pageLinks = [
   {
     id: 1,
     name: 'Home',
+    url: '/',
   },
   {
     id: 2,
     name: 'Blog',
+    url: '/blog',
   },
   {
     id: 3,
     name: 'Categories',
+    url: '/categories',
   },
   {
     id: 4,
     name: 'Authors',
+    url: '/authors',
   },
   {
     id: 5,
     name: 'Contact',
+    url: '/contact',
   },
 ];
 
@@ -79,9 +86,13 @@ const SideBar = ({
       </div>
       <div className={classNames.pages}>
         {pageLinks.map((item) => (
-          <span key={item.id}>{item.name}</span>
+          <span key={item.id}>
+            <Link to={item.url}>{item.name}</Link>
+          </span>
         ))}
       </div>
+      {/* Wishlist Button */}
+      <BiBookmarkHeart className={classNames.wishlist} />
     </div>
   );
 };
@@ -104,9 +115,13 @@ const Navbar: FC = () => {
         </div>
         <ul className={classNames.pages}>
           {pageLinks.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              <Link to={item.url}>{item.name}</Link>
+            </li>
           ))}
         </ul>
+        {/* Wishlist button */}
+        <BiBookmarkHeart className={classNames.wishlist} />
         <div className={classNames.menubar}>
           <CgMenuGridO onClick={() => open()} />
         </div>

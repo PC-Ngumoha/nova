@@ -11,7 +11,7 @@
   align-items: center;
 
   .logo {
-    flex: 1;
+    flex: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,13 +23,24 @@
   }
 
   .pages {
-    flex: 1;
+    flex: 2;
     display: none;
     // display: flex;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
     font-weight: bold;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .wishlist {
+    display: none;
+    flex: 1;
+    font-size: 3rem;
   }
 
   .menubar {
@@ -52,6 +63,10 @@
 
     .pages {
       display: flex;
+    }
+
+    .wishlist {
+      display: block;
     }
 
     .menubar {
@@ -78,7 +93,7 @@
 
   transition: all 1.2s cubic-bezier(0.25, 1, 0, 0.25);
 
-  transform: translateX(100%);
+  transform: translateX(105%);
 
   .closeButton {
     margin: 1rem 0;
@@ -107,6 +122,15 @@
     align-items: center;
     justify-content: space-evenly;
     font-size: 2rem;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .wishlist {
+    font-size: 5rem;
   }
 }
 
