@@ -1,5 +1,7 @@
 import { FC } from 'react';
 import { FaSearch } from 'react-icons/fa';
+import { PiHandsClappingFill } from 'react-icons/pi';
+import { Link } from 'react-router-dom';
 
 import classNames from '@/views/styles/Blog.module.scss';
 import rocket from '@/assets/images/spacex_rocket.jpg';
@@ -51,9 +53,24 @@ const Blog: FC = () => {
         <div className={classNames.card}>
           <img src={rocket} />
           <div className={classNames.preview}>
-            <span>
+            <span className={classNames.date}>4th December, 2024</span>
+            <span className={classNames.title}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </span>
+            <span className={classNames.snippet}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
+              tempora necessitatibus corrupti sed! Unde quae fuga...
+            </span>
+            <div className={classNames.extras}>
+              <span>
+                <PiHandsClappingFill /> 70
+              </span>
+              <Link to={'#'}>
+                {/* <PiArrowFatLinesRightFill />
+                 */}
+                Read More
+              </Link>
+            </div>
           </div>
         </div>
       </section>
