@@ -19,11 +19,11 @@ const pageLinks = [
     name: 'Blog',
     url: '/blog',
   },
-  {
-    id: 3,
-    name: 'Categories',
-    url: '/categories',
-  },
+  // {
+  //   id: 3,
+  //   name: 'Categories',
+  //   url: '/categories',
+  // },
   {
     id: 4,
     name: 'Authors',
@@ -72,7 +72,7 @@ const SideBar = ({
   const hasPreviouslyRendered = useRef(false);
 
   useEffect(() => {
-    if (hasPreviouslyRendered.current === true) {
+    if (hasPreviouslyRendered.current) {
       handleClose();
     }
     hasPreviouslyRendered.current = true;
