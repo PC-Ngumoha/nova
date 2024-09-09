@@ -9,6 +9,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.2rem;
+  // border-bottom: 0.2rem solid grey;
+  box-shadow: 0 0.4rem 1.5rem $color_subtle_shade;
 
   .logo {
     flex: 3;
@@ -91,7 +94,7 @@
   align-items: center;
   font-family: $heading_font_stack;
 
-  transition: all 1.2s cubic-bezier(0.25, 1, 0, 0.25);
+  transition: all 1.2s cubic-bezier(0.5, 1, 0, 0.25);
 
   transform: translateX(105%);
 

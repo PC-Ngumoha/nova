@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useRef } from 'react';
 import { GiGalaxy } from 'react-icons/gi';
 import { CgMenuGridO } from 'react-icons/cg';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { BiBookmarkHeart } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { concatClasses } from '@/utils/helpers';
 import classNames from '@/components/styles/Navbar.module.scss';
@@ -66,6 +66,19 @@ const SideBar = ({
   handleClose: () => void;
   open: boolean;
 }) => {
+  const location = useLocation();
+
+  // Helpful for keeping of first renders of this component
+  const hasPreviouslyRendered = useRef(false);
+
+  useEffect(() => {
+    if (hasPreviouslyRendered.current === true) {
+      handleClose();
+    }
+    hasPreviouslyRendered.current = true;
+    // eslint-disable-next-line
+  }, [location]);
+
   return (
     <div
       className={
@@ -103,8 +116,6 @@ const SideBar = ({
  */
 const Navbar: FC = () => {
   const { isOpen, open, close } = useToggle();
-
-  useEffect(() => {}, [isOpen]);
 
   return (
     <>

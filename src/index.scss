@@ -1,4 +1,4 @@
-// @import './styles/main';
+@import './styles/main';
 
 * {
   margin: 0;
@@ -12,6 +12,10 @@ html {
 
 body {
   overflow-x: hidden;
+  padding: 0 1rem;
+  color: $color_white;
+  background: $color_bg_stellar;
+  font-family: $body_font_stack;
 }
 
 // h1 {
