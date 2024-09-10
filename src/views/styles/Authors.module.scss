@@ -27,15 +27,31 @@
     height: 100%;
     width: 30%;
     border-radius: 1rem;
+    object-fit: auto;
   }
 
-  span {
-    align-self: center;
-    display: inline-block;
-    margin-left: 2rem;
-    font-size: 1.6rem;
+  .summary {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     font-family: $heading_font_stack;
-    letter-spacing: 0.3rem;
+    text-transform: capitalize;
+
+    .name {
+      font-size: 1.4rem;
+      letter-spacing: 0.3rem;
+    }
+
+    .occupation {
+      letter-spacing: 0.1rem;
+    }
+
+    .institution {
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+    }
   }
 }
 

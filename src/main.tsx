@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import { Home, Blog, Authors, Categories, Contact } from '@/views';
+import { getAllAuthors } from '@/views/utils/author.loader.ts';
 import './index.scss';
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'authors',
+        loader: getAllAuthors,
         element: <Authors />,
       },
       {

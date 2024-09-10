@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "firstName": "aisha",
+    "lastName": "tauhidi",
+    "occupation": "extraterrestrial biologist",
+    "Institution": "nasrda",
+    "title": "Dr.",
+    "avatar": "/images/authors/aisha_tauhidi.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "thyrone",
+    "lastName": "adebayo",
+    "occupation": "Propulsion researcher",
+    "Institution": null,
+    "title": "Dr.",
+    "avatar": "/images/authors/thyrone_adebayo.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "david",
+    "lastName": "uko",
+    "occupation": "Safety technician",
+    "Institution": "nasrda",
+    "title": "Mr.",
+    "avatar": "/images/authors/david_uko.jpg"
+  },
+  {
+    "id": 4,
+    "firstName": "chioma",
+    "lastName": "modi",
+    "occupation": "student",
+    "Institution": "university of ibadan",
+    "title": "Ms",
+    "avatar": "/images/authors/chioma_modi.jpg"
+  },
+  {
+    "id": 5,
+    "firstName": "trace",
+    "lastName": "constant",
+    "occupation": "structural analysis engineer",
+    "Institution": "nasrda",
+    "title": "Engr.",
+    "avatar": "/images/authors/trace_constant.jpg"
+  },
+  {
+    "id": 6,
+    "firstName": "ijeoma",
+    "lastName": "obioma",
+    "occupation": "researcher",
+    "Institution": null,
+    "title": "Mrs",
+    "avatar": "/images/authors/ijeoma_obioma.jpg"
+  },
+  {
+    "id": 7,
+    "firstName": "shatanu",
+    "lastName": "kumar",
+    "occupation": "researcher",
+    "Institution": null,
+    "title": "Engr",
+    "avatar": "/images/authors/shatanu_kumar.jpg"
+  },
+  {
+    "id": 8,
+    "firstName": "gregory",
+    "lastName": "rodriguez",
+    "occupation": "space editor",
+    "Institution": null,
+    "title": "Mr",
+    "avatar": "/images/authors/gregory_rodriguez.jpg"
+  }
+]
