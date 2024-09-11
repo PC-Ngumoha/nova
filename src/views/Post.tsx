@@ -102,7 +102,7 @@ const Post = () => {
           </button>
         ))}
       </div>
-      <NewsletterSignup />
+      <NewsletterSignup authorName='Thyrone Adebayo' />
       <section className={classNames.writtenBy}>
         <span>Written By</span>
         <hr />
