@@ -1,0 +1,193 @@
+@import '../../styles/main';
+
+.page {
+  position: relative;
+  width: 100%;
+}
+
+.post {
+  width: 100%;
+  height: fit-content;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 30rem;
+  }
+
+  .meta {
+    width: 80%;
+    margin: 1rem auto;
+    font-family: $heading_font_stack;
+
+    .title {
+      display: block;
+      text-align: center;
+      text-transform: capitalize;
+      letter-spacing: 0.2rem;
+      font-size: 2.5rem;
+      margin: 1rem;
+    }
+
+    .author {
+      width: 50%;
+      height: 5rem;
+      margin: 1rem auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: inherit;
+        width: 30%;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+      span {
+        text-transform: capitalize;
+        letter-spacing: 0.1rem;
+      }
+    }
+
+    .date {
+      display: block;
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  .body {
+    padding: 2rem 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.1rem;
+  }
+}
+
+.feedback {
+  width: 50%;
+  margin: 2rem auto;
+  border: 0.1rem solid $color_white;
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 2rem;
+    background-color: transparent;
+    color: $color_white;
+    border: 0;
+  }
+}
+
+.writtenBy {
+  width: 80%;
+  margin: 2rem auto;
+  font-family: $heading_font_stack;
+
+  hr {
+    margin: 1rem 0;
+  }
+
+  .author {
+    width: 100%;
+    padding: 1rem;
+
+    .heading {
+      width: 80%;
+      margin: 0 auto;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+
+      img {
+        height: inherit;
+        width: 30%;
+        margin-right: 1rem;
+        border-radius: 50%;
+      }
+
+      span {
+        font-size: 1.1rem;
+        letter-spacing: 0.2rem;
+      }
+    }
+
+    .bio {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        margin-top: 1rem;
+        letter-spacing: 0.2rem;
+      }
+    }
+  }
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .post {
+    width: 80%;
+
+    img {
+      height: 100vh;
+    }
+
+    .meta {
+      width: 60%;
+
+      .title {
+        letter-spacing: 0.3rem;
+      }
+
+      .author {
+        height: 7rem;
+
+        span {
+          font-size: 1.2rem;
+        }
+      }
+
+      .date {
+        font-size: 0.8rem;
+      }
+    }
+
+    .body {
+      font-size: 1.3rem;
+    }
+  }
+
+  .feedback {
+    width: 20%;
+  }
+
+  .writtenBy {
+    width: 80%;
+
+    .author {
+      width: 50%;
+
+      .heading {
+        width: 100%;
+        height: 10rem;
+      }
+
+      .bio {
+        display: flex;
+        flex-direction: row;
+
+        span {
+          margin-top: 2rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

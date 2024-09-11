@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { PiHandsClappingFill } from 'react-icons/pi';
+import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import { Banner } from '@/components';
@@ -72,7 +72,7 @@ const Blog: FC = () => {
               </span>
               <div className={classNames.extras}>
                 <span>
-                  <PiHandsClappingFill /> 70
+                  <FaRegHeart /> 70
                 </span>
                 <Link to={'#'}>
                   {/* <PiArrowFatLinesRightFill />
@@ -96,7 +96,7 @@ const Blog: FC = () => {
               </span>
               <div className={classNames.extras}>
                 <span>
-                  <PiHandsClappingFill /> 70
+                  <FaRegHeart /> 70
                 </span>
                 <Link to={'#'}>
                   {/* <PiArrowFatLinesRightFill />
@@ -120,7 +120,7 @@ const Blog: FC = () => {
               </span>
               <div className={classNames.extras}>
                 <span>
-                  <PiHandsClappingFill /> 70
+                  <FaRegHeart /> 70
                 </span>
                 <Link to={'#'}>
                   {/* <PiArrowFatLinesRightFill />
