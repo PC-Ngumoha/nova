@@ -29,7 +29,7 @@ const PostList = ({ data, loading }: { data: IBlog[]; loading: boolean }) => {
     );
   }
 
-  return blogList!.length > 0 ? (
+  return data.length > 0 ? (
     <div className={classNames.listContainer}>
       <article className={classNames.listing}>
         {blogList?.map((post) => <PostCard post={post} />)}

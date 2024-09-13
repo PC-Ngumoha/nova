@@ -26,7 +26,7 @@ const categories = [
   },
   {
     id: 5,
-    name: 'the future of space exploration',
+    name: 'future of space exploration',
   },
 ];
 
@@ -38,9 +38,13 @@ const Blog: FC = () => {
   const [data, setData] = useState<IBlog[]>(loaderData);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState(0);
 
+  // Utility: Implements search-based filtering
   useEffect(() => {
     setLoading(true);
+    // Disables any category-based filtering that has been previously enabled.
+    setCurrentCategory(0);
     const handleFiltering = async (s: string) => {
       if (s === '') {
         setData(loaderData);
@@ -61,6 +65,31 @@ const Blog: FC = () => {
     // Experimental
     setTimeout(handleFiltering, 300, search);
   }, [search]);
+
+  // Utility: Implements category-based filtering
+  useEffect(() => {
+    setLoading(true);
+    const handleFiltering = async (s: string) => {
+      if (s === '') {
+        setData(loaderData);
+      } else {
+        const newData = [
+          ...loaderData.filter(
+            (post) =>
+              post.category.toLocaleLowerCase() === s.toLocaleLowerCase(),
+          ),
+        ];
+
+        setData(newData);
+      }
+      setLoading(false);
+    };
+
+    if (currentCategory > 0) {
+      // Experimental
+      setTimeout(handleFiltering, 500, categories[currentCategory - 1].name);
+    }
+  }, [currentCategory]);
 
   return (
     <>
@@ -84,7 +113,15 @@ const Blog: FC = () => {
           </div>
           <div className={classNames.filters}>
             {categories.map((category) => (
-              <button key={category.id}>{category.name}</button>
+              <button
+                key={category.id}
+                className={
+                  category.id === currentCategory ? classNames.selected : ''
+                }
+                onClick={() => setCurrentCategory(category.id)}
+              >
+                {category.name}
+              </button>
             ))}
           </div>
         </aside>

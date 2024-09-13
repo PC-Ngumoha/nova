@@ -68,6 +68,11 @@
         margin-left: 0;
       }
     }
+
+    .selected {
+      background-color: $color-white;
+      color: $color_black;
+    }
   }
 }
 
