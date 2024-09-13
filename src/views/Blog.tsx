@@ -1,11 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { FaRegHeart } from 'react-icons/fa';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-import { Banner } from '@/components';
+import { Banner, PostCard } from '@/components';
+import { IBlog } from '@/types';
 import classNames from '@/views/styles/Blog.module.scss';
-// import rocket from '@/assets/images/spacex_rocket.jpg';
 
 const categories = [
   {
@@ -32,17 +31,6 @@ const categories = [
 
 const pitchMessage =
   'Stay up-to-date on the latest space missions, tech innovations, and discoveries. From distant galaxies to the future of human space travel, dive into the wonders of the universe with us!';
-
-interface IBlog {
-  id: number;
-  title: string;
-  body: string;
-  datePublished: string;
-  authorId: number;
-  likesCount: number;
-  avatar: string;
-  category: string;
-}
 
 const Blog: FC = () => {
   const [blogList, setBlogList] = useState<IBlog[] | undefined>();
@@ -81,33 +69,7 @@ const Blog: FC = () => {
           </div>
         </aside>
         <article className={classNames.listing}>
-          {blogList?.map((post) => (
-            <div
-              key={post.id}
-              className={classNames.card}
-            >
-              <img src={post.avatar} />
-              <div className={classNames.preview}>
-                <span className={classNames.date}>{post.datePublished}</span>
-                <span className={classNames.title}>{post.title}</span>
-                <span className={classNames.snippet}>
-                  {post.body.length >= 30
-                    ? post.body.substring(0, 30) + '...'
-                    : post.body}
-                </span>
-                <div className={classNames.extras}>
-                  <span>
-                    <FaRegHeart /> {post.likesCount}
-                  </span>
-                  <Link to={`/blog/post/${post.id}`}>
-                    {/* <PiArrowFatLinesRightFill />
-                     */}
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+          {blogList?.map((post) => <PostCard post={post} />)}
         </article>
       </main>
     </>

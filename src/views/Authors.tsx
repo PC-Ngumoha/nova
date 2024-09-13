@@ -2,27 +2,16 @@ import { FC, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import { Banner } from '@/components';
+import { IAuthor } from '@/types';
 import classNames from '@/views/styles/Authors.module.scss';
-// import { thyrone_adebayo } from '@/assets/images/authors';
-// import trace from '@/assets/images/trace_constant.jpg';
-// import chioma from '@/assets/images/chioma_modi.jpg';
 
 const pitchMessage =
   'Discover the passionate explorers, scientists, and writers who bring the universe to life. Learn about their expertise, stories, and the journeys that inspire their cosmic insights.';
 
-interface authorData {
-  id: number;
-  firstName: string;
-  lastName: string;
-  occupation: string;
-  Institution?: string;
-  avatar: string;
-}
-
 const Authors: FC = () => {
-  const data = useLoaderData() as authorData[];
+  const data = useLoaderData() as IAuthor[];
 
-  const [authors, setAuthors] = useState<authorData[] | null>(null);
+  const [authors, setAuthors] = useState<IAuthor[] | undefined>();
 
   useEffect(() => {
     setAuthors(data);
