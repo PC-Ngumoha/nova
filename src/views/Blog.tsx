@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 
@@ -34,7 +34,33 @@ const pitchMessage =
   'Stay up-to-date on the latest space missions, tech innovations, and discoveries. From distant galaxies to the future of human space travel, dive into the wonders of the universe with us!';
 
 const Blog: FC = () => {
-  const data = useLoaderData() as IBlog[];
+  const loaderData = useLoaderData() as IBlog[];
+  const [data, setData] = useState<IBlog[]>(loaderData);
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const handleFiltering = async (s: string) => {
+      if (s === '') {
+        setData(loaderData);
+      } else {
+        const newData = [
+          // Filters the post based on title only for now.
+          // FIXME: Make this more extensive (include filtering by category)
+          ...loaderData.filter((post) =>
+            post.title.toLocaleLowerCase().includes(s.toLocaleLowerCase()),
+          ),
+        ];
+
+        setData(newData);
+      }
+      setLoading(false);
+    };
+
+    // Experimental
+    setTimeout(handleFiltering, 300, search);
+  }, [search]);
 
   return (
     <>
@@ -51,7 +77,9 @@ const Blog: FC = () => {
               type='text'
               role='input'
               aria-label='search'
-              placeholder='Search by title, tag or category'
+              placeholder='Search for any title you want'
+              value={search}
+              onChange={(evt) => setSearch(evt.target.value)}
             />
           </div>
           <div className={classNames.filters}>
@@ -60,7 +88,10 @@ const Blog: FC = () => {
             ))}
           </div>
         </aside>
-        <PostList data={data} />
+        <PostList
+          data={data}
+          loading={loading}
+        />
       </main>
     </>
   );
