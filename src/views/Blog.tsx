@@ -1,8 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 
-import { Banner, PostCard } from '@/components';
+import { Banner } from '@/components';
+import { PostList } from '@/layouts';
 import { IBlog } from '@/types';
 import classNames from '@/views/styles/Blog.module.scss';
 
@@ -33,16 +34,7 @@ const pitchMessage =
   'Stay up-to-date on the latest space missions, tech innovations, and discoveries. From distant galaxies to the future of human space travel, dive into the wonders of the universe with us!';
 
 const Blog: FC = () => {
-  const [blogList, setBlogList] = useState<IBlog[] | undefined>();
   const data = useLoaderData() as IBlog[];
-
-  useEffect(() => {
-    // FIXME: For the purpose of testing - output only 6 posts until I
-    // implement pagination
-    const limitedData = [...data.slice(0, 6)];
-
-    setBlogList(limitedData);
-  }, []);
 
   return (
     <>
@@ -68,9 +60,7 @@ const Blog: FC = () => {
             ))}
           </div>
         </aside>
-        <article className={classNames.listing}>
-          {blogList?.map((post) => <PostCard post={post} />)}
-        </article>
+        <PostList data={data} />
       </main>
     </>
   );

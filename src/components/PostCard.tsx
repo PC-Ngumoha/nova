@@ -16,7 +16,7 @@ const PostCard = ({ post }: { post: IBlog }) => {
         <span className={classNames.title}>{post.title}</span>
         <span className={classNames.snippet}>
           {post.body.length >= 30
-            ? post.body.substring(0, 30) + '...'
+            ? post.body.substring(0, 50) + '...'
             : post.body}
         </span>
         <div className={classNames.extras}>
