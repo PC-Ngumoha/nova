@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FaRegHeart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 import { Banner } from '@/components';
 import classNames from '@/views/styles/Blog.module.scss';
-import rocket from '@/assets/images/spacex_rocket.jpg';
+// import rocket from '@/assets/images/spacex_rocket.jpg';
 
 const categories = [
   {
@@ -33,7 +33,29 @@ const categories = [
 const pitchMessage =
   'Stay up-to-date on the latest space missions, tech innovations, and discoveries. From distant galaxies to the future of human space travel, dive into the wonders of the universe with us!';
 
+interface IBlog {
+  id: number;
+  title: string;
+  body: string;
+  datePublished: string;
+  authorId: number;
+  likesCount: number;
+  avatar: string;
+  category: string;
+}
+
 const Blog: FC = () => {
+  const [blogList, setBlogList] = useState<IBlog[] | undefined>();
+  const data = useLoaderData() as IBlog[];
+
+  useEffect(() => {
+    // FIXME: For the purpose of testing - output only 6 posts until I
+    // implement pagination
+    const limitedData = [...data.slice(0, 6)];
+
+    setBlogList(limitedData);
+  }, []);
+
   return (
     <>
       <Banner
@@ -59,77 +81,33 @@ const Blog: FC = () => {
           </div>
         </aside>
         <article className={classNames.listing}>
-          <div className={classNames.card}>
-            <img src={rocket} />
-            <div className={classNames.preview}>
-              <span className={classNames.date}>4th December, 2024</span>
-              <span className={classNames.title}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </span>
-              <span className={classNames.snippet}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
-                tempora necessitatibus corrupti sed! Unde quae fuga...
-              </span>
-              <div className={classNames.extras}>
-                <span>
-                  <FaRegHeart /> 70
+          {blogList?.map((post) => (
+            <div
+              key={post.id}
+              className={classNames.card}
+            >
+              <img src={post.avatar} />
+              <div className={classNames.preview}>
+                <span className={classNames.date}>{post.datePublished}</span>
+                <span className={classNames.title}>{post.title}</span>
+                <span className={classNames.snippet}>
+                  {post.body.length >= 30
+                    ? post.body.substring(0, 30) + '...'
+                    : post.body}
                 </span>
-                <Link to={'#'}>
-                  {/* <PiArrowFatLinesRightFill />
-                   */}
-                  Read More
-                </Link>
+                <div className={classNames.extras}>
+                  <span>
+                    <FaRegHeart /> {post.likesCount}
+                  </span>
+                  <Link to={`/blog/post/${post.id}`}>
+                    {/* <PiArrowFatLinesRightFill />
+                     */}
+                    Read More
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className={classNames.card}>
-            <img src={rocket} />
-            <div className={classNames.preview}>
-              <span className={classNames.date}>4th December, 2024</span>
-              <span className={classNames.title}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </span>
-              <span className={classNames.snippet}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
-                tempora necessitatibus corrupti sed! Unde quae fuga...
-              </span>
-              <div className={classNames.extras}>
-                <span>
-                  <FaRegHeart /> 70
-                </span>
-                <Link to={'#'}>
-                  {/* <PiArrowFatLinesRightFill />
-                   */}
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className={classNames.card}>
-            <img src={rocket} />
-            <div className={classNames.preview}>
-              <span className={classNames.date}>4th December, 2024</span>
-              <span className={classNames.title}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </span>
-              <span className={classNames.snippet}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
-                tempora necessitatibus corrupti sed! Unde quae fuga...
-              </span>
-              <div className={classNames.extras}>
-                <span>
-                  <FaRegHeart /> 70
-                </span>
-                <Link to={'#'}>
-                  {/* <PiArrowFatLinesRightFill />
-                   */}
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
+          ))}
         </article>
       </main>
     </>

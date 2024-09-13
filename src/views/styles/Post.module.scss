@@ -54,7 +54,8 @@
       display: block;
       text-align: center;
       font-size: 0.7rem;
-      letter-spacing: 0.1rem;
+      letter-spacing: 0.5rem;
+      font-family: $body_font_stack;
     }
   }
 
@@ -115,6 +116,7 @@
       span {
         font-size: 1.1rem;
         letter-spacing: 0.2rem;
+        text-transform: capitalize;
       }
     }
 
@@ -125,6 +127,16 @@
       span {
         margin-top: 1rem;
         letter-spacing: 0.2rem;
+      }
+
+      .occupation {
+        text-transform: capitalize;
+        letter-spacing: 0.2rem;
+      }
+
+      .institution {
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
       }
     }
   }
@@ -155,7 +167,7 @@
       }
 
       .date {
-        font-size: 0.8rem;
+        font-size: 1rem;
       }
     }
 
