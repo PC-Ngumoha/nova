@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { TfiCommentAlt } from 'react-icons/tfi';
@@ -6,6 +6,7 @@ import { BsBookmarkPlus, BsBookmarkCheck } from 'react-icons/bs';
 
 import { NewsletterSignup } from '@/components';
 import { IBlog } from '@/types';
+import { formatDate } from '@/utils/helpers';
 import classNames from '@/views/styles/Post.module.scss';
 
 const feedbackOptions = [
@@ -28,12 +29,12 @@ const feedbackOptions = [
 const Post = () => {
   const data = useLoaderData() as IBlog;
   // console.log(data);
-  const [post, setPost] = useState<IBlog | undefined>();
+  const [post] = useState<IBlog>(data);
 
-  useEffect(() => {
-    // setting the blog
-    setPost(data);
-  }, []);
+  // useEffect(() => {
+  //   // setting the blog
+  //   setPost(data);
+  // }, []);
 
   return (
     <main className={classNames.page}>
@@ -48,7 +49,9 @@ const Post = () => {
               {post?.author?.firstName} {post?.author?.lastName}
             </span>
           </div>
-          <span className={classNames.date}>{post?.datePublished}</span>
+          <span className={classNames.date}>
+            {formatDate(post?.datePublished)}
+          </span>
         </div>
         <div className={classNames.body}>
           {post?.body.split('\n').map((line, idx) => (

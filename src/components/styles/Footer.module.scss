@@ -1,0 +1,54 @@
+@import '../../styles/main';
+
+.footer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  padding: 1rem;
+  background-color: $color_subtle_shade;
+  color: $color_white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: $heading_font_stack;
+    letter-spacing: 0.2rem;
+
+    span {
+      // display: inline-block;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .copyright {
+    font-weight: 200;
+    letter-spacing: 0.3rem;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  .tagline {
+    font-weight: 300;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+  }
+
+  a {
+    margin-right: 0.5rem;
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: inherit;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import { IBlog } from '@/types';
+import { formatDate } from '@/utils/helpers';
 import classNames from '@/components/styles/PostCard.module.scss';
 
 const PostCard = ({ post }: { post: IBlog }) => {
@@ -12,7 +13,9 @@ const PostCard = ({ post }: { post: IBlog }) => {
     >
       <img src={post.avatar} />
       <div className={classNames.preview}>
-        <span className={classNames.date}>{post.datePublished}</span>
+        <span className={classNames.date}>
+          {formatDate(post.datePublished)}
+        </span>
         <span className={classNames.title}>{post.title}</span>
         <span className={classNames.snippet}>
           {post.body.length >= 30
