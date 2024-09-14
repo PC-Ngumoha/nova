@@ -5,6 +5,7 @@ import Authors from "./Authors";
 import Categories from "./Categories";
 import Contact from './Contact';
 import Post from "./Post";
+import Wishlist from './Wishlist';
 
 export {
   Home,
@@ -12,5 +13,6 @@ export {
   Authors,
   Categories,
   Contact,
-  Post
+  Post,
+  Wishlist
 };

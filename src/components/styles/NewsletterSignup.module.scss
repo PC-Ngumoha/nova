@@ -52,7 +52,15 @@
 }
 
 /* Larger screens */
+
 @media (min-width: 768px) {
+  .newsletter {
+    width: 60%;
+    margin: 1rem auto;
+  }
+}
+
+@media (min-width: 999px) {
   .newsletter {
     width: 40%;
     margin: 0 auto;

@@ -28,14 +28,13 @@ const PostCard = ({ post }: { post: IBlog }) => {
         </span>
         <div className={classNames.extras}>
           <span>
-            <FaRegHeart /> {post.likesCount}
+            <FaRegHeart />
+            {post.likesCount}
           </span>
           <Link
             to={`/blog/post/${post.id}`}
             onClick={() => scrollToTop()}
           >
-            {/* <PiArrowFatLinesRightFill />
-             */}
             Read More
           </Link>
         </div>

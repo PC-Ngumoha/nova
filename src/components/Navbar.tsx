@@ -3,7 +3,7 @@ import { GiGalaxy } from 'react-icons/gi';
 import { CgMenuGridO } from 'react-icons/cg';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { BiBookmarkHeart } from 'react-icons/bi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { concatClasses } from '@/utils/helpers';
 import classNames from '@/components/styles/Navbar.module.scss';
@@ -67,6 +67,7 @@ const SideBar = ({
   open: boolean;
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Helpful for keeping of first renders of this component
   const hasPreviouslyRendered = useRef(false);
@@ -105,7 +106,10 @@ const SideBar = ({
         ))}
       </div>
       {/* Wishlist Button */}
-      <BiBookmarkHeart className={classNames.wishlist} />
+      <BiBookmarkHeart
+        className={classNames.wishlist}
+        onClick={() => navigate('/wishlist')}
+      />
     </div>
   );
 };
@@ -116,6 +120,7 @@ const SideBar = ({
  */
 const Navbar: FC = () => {
   const { isOpen, open, close } = useToggle();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -132,12 +137,18 @@ const Navbar: FC = () => {
           ))}
         </ul>
         {/* Wishlist button */}
-        <BiBookmarkHeart className={classNames.wishlist} />
+        <BiBookmarkHeart
+          className={classNames.wishlist}
+          onClick={() => navigate('/wishlist')}
+        />
         <div className={classNames.menubar}>
           <CgMenuGridO onClick={() => open()} />
         </div>
       </nav>
-      <SideBar handleClose={close} open={isOpen} />
+      <SideBar
+        handleClose={close}
+        open={isOpen}
+      />
     </>
   );
 };

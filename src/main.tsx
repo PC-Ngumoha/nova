@@ -2,7 +2,15 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
-import { Home, Blog, Authors, Categories, Contact, Post } from '@/views';
+import {
+  Home,
+  Blog,
+  Authors,
+  Categories,
+  Contact,
+  Post,
+  Wishlist,
+} from '@/views';
 import {
   getAllAuthors,
   getAllBlogPosts,
@@ -43,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contact />,
+      },
+      {
+        path: 'wishlist',
+        element: <Wishlist />,
       },
     ],
   },

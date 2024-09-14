@@ -55,7 +55,11 @@
       align-items: center;
 
       span {
-        font-size: 1.5rem;
+        display: flex;
+        font-size: 2rem;
+        width: 15%;
+        justify-content: space-around;
+        align-items: center;
       }
 
       a {
@@ -64,8 +68,17 @@
         padding: 0.5rem;
         font-size: 1.7rem;
         background-color: transparent;
+        text-transform: lowercase;
         border: 0;
         color: inherit;
+        text-align: right;
+        transition: all 0.2s ease;
+
+        &:hover {
+          letter-spacing: 0.2rem;
+          color: $color_neon_light;
+          text-transform: capitalize;
+        }
       }
     }
   }
@@ -93,7 +106,13 @@
       }
 
       .title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+
+      .extras {
+        span {
+          width: 11%;
+        }
       }
     }
   }
