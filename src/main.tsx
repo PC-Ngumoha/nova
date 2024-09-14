@@ -7,6 +7,7 @@ import {
   getAllAuthors,
   getAllBlogPosts,
   getSpecificBlogPost,
+  getFeaturedBlogPosts,
 } from '@/views/utils';
 import './index.scss';
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
+        loader: getFeaturedBlogPosts,
         element: <Home />,
       },
       {

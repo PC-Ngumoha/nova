@@ -1,11 +1,11 @@
 import classNames from '@/components/styles/NewsletterSignup.module.scss';
 
-const NewsletterSignup = ({ authorName = '' }: { authorName: string }) => {
+const NewsletterSignup = ({ authorName = '' }: { authorName?: string }) => {
   return (
     <div className={classNames.newsletter}>
-      <h3>Subscribe to my newsletter</h3>
+      <h3>Subscribe to {authorName !== '' ? 'my' : 'our'} newsletter</h3>
       <span>
-        Read more articles from <b>{authorName !== '' ? authorName : 'us'}</b>{' '}
+        Read more articles from <b>{authorName !== '' ? authorName : 'Us'}</b>{' '}
         directly inside your Inbox. Subscribe to the newsletter and don't miss
         out.
       </span>

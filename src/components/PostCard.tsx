@@ -6,6 +6,10 @@ import { formatDate } from '@/utils/helpers';
 import classNames from '@/components/styles/PostCard.module.scss';
 
 const PostCard = ({ post }: { post: IBlog }) => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div
       key={post.id}
@@ -26,7 +30,10 @@ const PostCard = ({ post }: { post: IBlog }) => {
           <span>
             <FaRegHeart /> {post.likesCount}
           </span>
-          <Link to={`/blog/post/${post.id}`}>
+          <Link
+            to={`/blog/post/${post.id}`}
+            onClick={() => scrollToTop()}
+          >
             {/* <PiArrowFatLinesRightFill />
              */}
             Read More

@@ -1,8 +1,9 @@
 import { getAllAuthors } from './author.loader';
-import { getAllBlogPosts, getSpecificBlogPost } from './blog.loader';
+import { getAllBlogPosts, getSpecificBlogPost, getFeaturedBlogPosts } from './blog.loader';
 
 export {
   getAllAuthors,
   getAllBlogPosts,
-  getSpecificBlogPost
+  getSpecificBlogPost,
+  getFeaturedBlogPosts
 };

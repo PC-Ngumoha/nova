@@ -1,0 +1,162 @@
+@import '../../styles/main';
+
+.home {
+  width: 100%;
+  height: fit-content;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .cta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      font-size: 2rem;
+      text-transform: capitalize;
+      letter-spacing: 0.5rem;
+      line-height: 5rem;
+      font-family: $heading_font_stack;
+      font-weight: 700;
+    }
+
+    a {
+      margin-top: 2rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      background: $color_bg_stellar;
+      padding: 1.5rem 2rem;
+      width: 20rem;
+      text-align: center;
+      box-shadow: 3px 6px 10px $color_subtle_shade;
+      font-size: 1.2rem;
+      letter-spacing: 0.2rem;
+      font-weight: 600;
+    }
+  }
+}
+
+/* ABOUT SECTION */
+.about {
+  width: 80%;
+  height: 60vh;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 50%;
+    object-fit: auto;
+    display: none;
+  }
+
+  .body {
+    height: fit-content;
+    background: $color_bg_stellar;
+    color: $color_white;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    span {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+      font-family: $heading_font_stack;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      letter-spacing: 0.1rem;
+      word-spacing: 0.1rem;
+    }
+  }
+}
+
+/* FEATURED BLOG POSTS SECTION */
+.featured {
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: 2rem;
+    font-family: $heading_font_stack;
+    letter-spacing: 0.2rem;
+  }
+
+  div {
+    width: 100%;
+    margin: 2rem 0;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  /* HERO SECTION */
+  .hero {
+    .cta {
+      span {
+        font-size: 3rem;
+      }
+
+      a {
+        padding: 2rem;
+      }
+    }
+  }
+
+  /* ABOUT SECTION */
+  .about {
+    width: 60%;
+    position: relative;
+
+    img {
+      display: block;
+      width: 70%;
+      height: 100%;
+      border-radius: 1rem;
+    }
+
+    .body {
+      position: absolute;
+      top: 15%;
+      left: 45%;
+      padding: 2rem;
+    }
+  }
+
+  /* FEATURED BLOG POSTS SECTION */
+  .featured {
+    width: 60%;
+    margin: 2rem auto;
+
+    h3 {
+      font-size: 3rem;
+      letter-spacing: 0.35rem;
+    }
+  }
+}
