@@ -4,6 +4,7 @@ import NewsletterSignup from "./NewsletterSignup";
 import PostCard from "./PostCard";
 import Pagination from './Pagination';
 import Footer from './Footer';
+import CommentsPanel from "./CommentsPanel";
 
 export {
   Navbar,
@@ -11,5 +12,6 @@ export {
   NewsletterSignup,
   PostCard,
   Pagination,
-  Footer
+  Footer,
+  CommentsPanel
 };

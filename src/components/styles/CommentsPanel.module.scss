@@ -1,0 +1,161 @@
+@import '../../styles/main';
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.506);
+  width: 100%;
+  height: 100%;
+
+  .panel {
+    position: absolute;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    background: $color_bg_stellar;
+    color: $color_white;
+
+    .heading {
+      padding: 1rem 2rem;
+      height: 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: 1.5rem;
+        font-family: $heading_font_stack;
+        letter-spacing: 0.2rem;
+        font-weight: bold;
+      }
+
+      .close {
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+    }
+
+    form {
+      padding: 1rem 2rem;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        width: 100%;
+        height: 10%;
+        padding: 1rem;
+        font-size: 1.2rem;
+        word-spacing: 0.1rem;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 40%;
+        padding: 1rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
+        word-spacing: 0.1rem;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      button {
+        width: 30%;
+        padding: 1rem;
+        font-family: $heading_font_stack;
+        background: inherit;
+        color: inherit;
+        border: 0.1rem solid $color_thick_shade;
+        box-shadow: 0.2rem 0.4rem 0.6rem $color_subtle_shade;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+
+    .commentList {
+      margin: 1rem 0;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .overlay {
+    .panel {
+      width: 60%;
+
+      .heading {
+        h3 {
+          font-size: 2rem;
+        }
+      }
+
+      form {
+        button {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .overlay {
+    .panel {
+      width: 40%;
+
+      form {
+        button {
+          width: fit-content;
+        }
+      }
+    }
+  }
+}
+
+/* COMMENT CARD */
+
+.card {
+  width: 80%;
+  height: fit-content;
+  padding: 0.5rem;
+  background-color: $color_thick_shade;
+  border-radius: 1rem;
+
+  .heading {
+    padding: 0.5rem 7rem;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 1.1rem;
+      font-family: $heading_font_stack;
+      text-transform: capitalize;
+      letter-spacing: 0.2rem;
+    }
+
+    .delete {
+      font-size: 1.8rem;
+    }
+  }
+
+  .body {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+  }
+}

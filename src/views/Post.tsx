@@ -4,7 +4,7 @@ import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { TfiCommentAlt } from 'react-icons/tfi';
 import { BsBookmarkPlus, BsBookmarkCheck } from 'react-icons/bs';
 
-import { NewsletterSignup } from '@/components';
+import { NewsletterSignup, CommentsPanel } from '@/components';
 import { IBlog } from '@/types';
 import { formatDate } from '@/utils/helpers';
 import classNames from '@/views/styles/Post.module.scss';
@@ -93,6 +93,8 @@ const Post = () => {
           </div>
         </div>
       </section>
+      {/* Type your commensts here */}
+      <CommentsPanel />
     </main>
   );
 };
