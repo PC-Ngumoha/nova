@@ -34,6 +34,9 @@ export interface IInteraction {
 
 export type InteractionContextType = {
   interactions: IInteraction[];
-  togglePostLike: (val: number) => void;
-  isPostLiked: (val: number) => boolean;
+  togglePostLike: (postId: number) => void;
+  isPostLiked: (postId: number) => boolean;
+  addCommentToPost: (postId: number, body: IComment) => void;
+  removeCommentFromPost: (postId: number, id: number) => void;
+  retrievePostComments: (postId: number) => IComment[];
 };

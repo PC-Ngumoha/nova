@@ -14,8 +14,13 @@ const Post = () => {
   const data = useLoaderData() as IBlog;
   const [post] = useState<IBlog>(data);
   const [openComments, setOpenComments] = useState(false);
-  const { togglePostLike, isPostLiked } =
-    useInteraction() as InteractionContextType;
+  const {
+    togglePostLike,
+    isPostLiked,
+    retrievePostComments,
+    addCommentToPost,
+    removeCommentFromPost,
+  } = useInteraction() as InteractionContextType;
 
   const feedbackOptions = [
     {
@@ -99,6 +104,10 @@ const Post = () => {
       <CommentsPanel
         open={openComments}
         setOpen={setOpenComments}
+        postId={post.id}
+        comments={retrievePostComments(post.id)}
+        addComment={addCommentToPost}
+        removeComment={removeCommentFromPost}
       />
     </main>
   );

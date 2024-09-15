@@ -86,9 +86,23 @@
 
     .commentList {
       margin: 1rem 0;
-      height: 60%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-behavior: smooth;
+      overflow: auto;
+    }
+
+    .message {
+      margin: 1rem 0;
+      height: 20%;
       display: flex;
       justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      font-family: $heading_font_stack;
+      letter-spacing: 0.2rem;
     }
   }
 }
@@ -130,6 +144,7 @@
 /* COMMENT CARD */
 
 .card {
+  margin-bottom: 1.2rem;
   width: 80%;
   height: fit-content;
   padding: 0.5rem;
