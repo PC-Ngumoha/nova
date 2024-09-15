@@ -19,3 +19,21 @@ export interface IBlog {
   category: string;
   author?: IAuthor;
 }
+
+export interface IComment {
+  id: number;
+  authorName: string;
+  body: string;
+}
+
+export interface IInteraction {
+  postId: number;
+  liked: boolean;
+  comments?: IComment[];
+}
+
+export type InteractionContextType = {
+  interactions: IInteraction[];
+  togglePostLike: (val: number) => void;
+  isPostLiked: (val: number) => boolean;
+};

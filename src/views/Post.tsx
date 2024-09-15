@@ -5,36 +5,35 @@ import { TfiCommentAlt } from 'react-icons/tfi';
 import { BsBookmarkPlus, BsBookmarkCheck } from 'react-icons/bs';
 
 import { NewsletterSignup, CommentsPanel } from '@/components';
-import { IBlog } from '@/types';
+import { useInteraction } from '@/context/interaction.context';
+import { IBlog, InteractionContextType } from '@/types';
 import { formatDate } from '@/utils/helpers';
 import classNames from '@/views/styles/Post.module.scss';
 
-const feedbackOptions = [
-  {
-    id: 1,
-    icon: FaRegHeart,
-    altIcon: FaHeart,
-  },
-  {
-    id: 2,
-    icon: TfiCommentAlt,
-  },
-  {
-    id: 3,
-    icon: BsBookmarkPlus,
-    altIcon: BsBookmarkCheck,
-  },
-];
-
 const Post = () => {
   const data = useLoaderData() as IBlog;
-  // console.log(data);
   const [post] = useState<IBlog>(data);
+  const [openComments, setOpenComments] = useState(false);
+  const { togglePostLike, isPostLiked } =
+    useInteraction() as InteractionContextType;
 
-  // useEffect(() => {
-  //   // setting the blog
-  //   setPost(data);
-  // }, []);
+  const feedbackOptions = [
+    {
+      id: 1,
+      icon: isPostLiked(post.id) ? FaHeart : FaRegHeart,
+      action: () => togglePostLike(post.id),
+    },
+    {
+      id: 2,
+      icon: TfiCommentAlt,
+      action: () => setOpenComments(true),
+    },
+    {
+      id: 3,
+      icon: BsBookmarkPlus,
+      altIcon: BsBookmarkCheck,
+    },
+  ];
 
   return (
     <main className={classNames.page}>
@@ -65,7 +64,10 @@ const Post = () => {
       {/* Like, comment or add to wishlist */}
       <div className={classNames.feedback}>
         {feedbackOptions.map((option) => (
-          <button key={option.id}>
+          <button
+            key={option.id}
+            onClick={option.action ? option.action : () => {}}
+          >
             <option.icon />
           </button>
         ))}
@@ -94,7 +96,10 @@ const Post = () => {
         </div>
       </section>
       {/* Type your commensts here */}
-      <CommentsPanel />
+      <CommentsPanel
+        open={openComments}
+        setOpen={setOpenComments}
+      />
     </main>
   );
 };

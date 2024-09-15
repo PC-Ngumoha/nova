@@ -17,6 +17,7 @@ import {
   getSpecificBlogPost,
   getFeaturedBlogPosts,
 } from '@/views/utils';
+import { InteractionProvider } from '@/context/interaction.context.tsx';
 import './index.scss';
 
 const router = createBrowserRouter([
@@ -62,6 +63,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <InteractionProvider>
+      <RouterProvider router={router} />
+    </InteractionProvider>
   </StrictMode>,
 );
