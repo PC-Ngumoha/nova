@@ -1,4 +1,5 @@
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 import { Banner } from '@/components';
 import { formatDate } from '@/utils/helpers';
@@ -12,6 +13,7 @@ const pitchMessage =
 
 const Wishlist = () => {
   const { posts, removeFromBookmark } = useBookmark() as BookmarkContextType;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -25,6 +27,9 @@ const Wishlist = () => {
             <div
               key={post.id}
               className={classNames.card}
+              onClick={() => {
+                navigate(`/blog/post/${post.id}`);
+              }}
             >
               <img src={rocket} />
               <div>
@@ -32,7 +37,12 @@ const Wishlist = () => {
                 <span className={classNames.title}>{post.title}</span>
               </div>
               <div className={classNames.deleteContainer}>
-                <FaRegTrashAlt onClick={() => removeFromBookmark(post.id)} />
+                <FaRegTrashAlt
+                  onClick={(evt) => {
+                    evt.stopPropagation();
+                    removeFromBookmark(post.id);
+                  }}
+                />
               </div>
             </div>
           ))}
