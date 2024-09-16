@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { MdOutlineDelete } from 'react-icons/md';
 
 import { IComment } from '@/types';
+import { CommentCard } from '@/components';
 import classNames from '@/components/styles/CommentsPanel.module.scss';
 
 const CommentsPanel = ({
@@ -23,12 +23,38 @@ const CommentsPanel = ({
   const [authorName, setAuthorName] = useState('');
   const [body, setBody] = useState('');
 
-  console.log(comments);
+  // TOGGLES page scrolling on mounting and unmounting of panel
+  useEffect(() => {
+    if (open) {
+      // Disable scrolling of page content
+      document.body.classList.add(classNames.scrollLock);
+    } else {
+      document.body.classList.remove(classNames.scrollLock);
+    }
+
+    // Ensure that scrolling is enabled when component unmounts
+    return () => {
+      document.body.classList.remove(classNames.scrollLock);
+    };
+  }, [open]);
 
   return (
     open && (
-      <section className={classNames.overlay}>
-        <div className={classNames.panel}>
+      <section
+        className={classNames.overlay}
+        // Enabling users close the panel by clicking the space outside it.
+        onClick={() => {
+          setOpen(false);
+        }}
+      >
+        <div
+          className={classNames.panel}
+          // Preventing such click event from affecting the normal function of
+          // the panel
+          onClick={(evt) => {
+            evt.stopPropagation();
+          }}
+        >
           <div className={classNames.heading}>
             <h3>Comments</h3>
             <IoClose
@@ -76,21 +102,12 @@ const CommentsPanel = ({
           {comments.length > 0 ? (
             <div className={classNames.commentList}>
               {comments.map((comment) => (
-                // TODO: Refactor card into individual component
-                // TODO: Make it so that extremely long text gets cut progressively
-                <div
-                  key={comment.id}
-                  className={classNames.card}
-                >
-                  <div className={classNames.heading}>
-                    <span>{comment.authorName}</span>
-                    <MdOutlineDelete
-                      className={classNames.delete}
-                      onClick={() => removeComment(postId, comment.id)}
-                    />
-                  </div>
-                  <div className={classNames.body}>{comment.body}</div>
-                </div>
+                // TODO: Find a way to stop having to drill props
+                <CommentCard
+                  comment={comment}
+                  postId={postId}
+                  removeComment={removeComment}
+                />
               ))}
             </div>
           ) : (

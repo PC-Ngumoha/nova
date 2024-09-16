@@ -31,7 +31,9 @@ const Post = () => {
     {
       id: 2,
       icon: TfiCommentAlt,
-      action: () => setOpenComments(true),
+      action: () => {
+        setOpenComments(true);
+      },
     },
     {
       id: 3,
@@ -78,7 +80,9 @@ const Post = () => {
         ))}
       </div>
       {/* Signup for newsletter */}
-      <NewsletterSignup authorName='Thyrone Adebayo' />
+      <NewsletterSignup
+        authorName={`${post?.author?.firstName} ${post?.author?.lastName}`}
+      />
       {/* Written By */}
       <section className={classNames.writtenBy}>
         <span>Written By</span>

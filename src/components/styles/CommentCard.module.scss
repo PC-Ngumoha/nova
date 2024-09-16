@@ -1,0 +1,54 @@
+@import '../../styles/main';
+
+.card {
+  margin-bottom: 1.2rem;
+  width: 80%;
+  height: fit-content;
+  padding: 0.5rem;
+  background-color: $color_thick_shade;
+  border-radius: 1rem;
+
+  .heading {
+    padding: 0.5rem 7rem;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 1.1rem;
+      font-family: $heading_font_stack;
+      text-transform: capitalize;
+      letter-spacing: 0.2rem;
+    }
+
+    .delete {
+      font-size: 1.8rem;
+    }
+  }
+
+  .body {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .showButtons {
+    padding: 1rem;
+    display: flex;
+    justify-content: end;
+
+    button {
+      padding: 0.5rem;
+      text-transform: capitalize;
+      background: inherit;
+      color: inherit;
+      font-family: inherit;
+      letter-spacing: 0.2rem;
+      font-size: 1.1rem;
+      border: 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

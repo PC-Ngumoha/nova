@@ -1,12 +1,17 @@
 @import '../../styles/main';
 
+.scrollLock {
+  overflow: hidden;
+}
+
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.506);
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  touch-action: none;
 
   .panel {
     position: absolute;
@@ -15,10 +20,11 @@
     height: 100%;
     background: $color_bg_stellar;
     color: $color_white;
+    overflow: auto;
 
     .heading {
       padding: 1rem 2rem;
-      height: 5%;
+      height: 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -38,7 +44,7 @@
 
     form {
       padding: 1rem 2rem;
-      height: 30%;
+      height: 50%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -48,7 +54,9 @@
         width: 100%;
         height: 10%;
         padding: 1rem;
-        font-size: 1.2rem;
+        font-size: 0.9rem;
+        font-family: $heading_font_stack;
+        letter-spacing: 0.2rem;
         word-spacing: 0.1rem;
 
         &:focus {
@@ -85,8 +93,8 @@
     }
 
     .commentList {
-      margin: 1rem 0;
-      height: 50%;
+      margin: 0.5rem 0;
+      height: 30%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -138,39 +146,5 @@
         }
       }
     }
-  }
-}
-
-/* COMMENT CARD */
-
-.card {
-  margin-bottom: 1.2rem;
-  width: 80%;
-  height: fit-content;
-  padding: 0.5rem;
-  background-color: $color_thick_shade;
-  border-radius: 1rem;
-
-  .heading {
-    padding: 0.5rem 7rem;
-    display: flex;
-    justify-content: space-between;
-
-    span {
-      font-size: 1.1rem;
-      font-family: $heading_font_stack;
-      text-transform: capitalize;
-      letter-spacing: 0.2rem;
-    }
-
-    .delete {
-      font-size: 1.8rem;
-    }
-  }
-
-  .body {
-    padding: 0.5rem;
-    font-size: 1.1rem;
-    letter-spacing: 0.1rem;
   }
 }

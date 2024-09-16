@@ -20,6 +20,11 @@
     margin-bottom: 0.5rem;
   }
 
+  .authorName {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
   form {
     height: fit-content;
     width: 90%;

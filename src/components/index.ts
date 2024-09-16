@@ -5,6 +5,7 @@ import PostCard from "./PostCard";
 import Pagination from './Pagination';
 import Footer from './Footer';
 import CommentsPanel from "./CommentsPanel";
+import CommentCard from "./CommentCard";
 
 export {
   Navbar,
@@ -13,5 +14,6 @@ export {
   PostCard,
   Pagination,
   Footer,
-  CommentsPanel
+  CommentsPanel,
+  CommentCard
 };

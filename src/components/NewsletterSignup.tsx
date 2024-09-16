@@ -5,7 +5,10 @@ const NewsletterSignup = ({ authorName = '' }: { authorName?: string }) => {
     <div className={classNames.newsletter}>
       <h3>Subscribe to {authorName !== '' ? 'my' : 'our'} newsletter</h3>
       <span>
-        Read more articles from <b>{authorName !== '' ? authorName : 'Us'}</b>{' '}
+        Read more articles from{' '}
+        <span className={classNames.authorName}>
+          {authorName !== '' ? authorName : 'Us'}
+        </span>{' '}
         directly inside your Inbox. Subscribe to the newsletter and don't miss
         out.
       </span>
