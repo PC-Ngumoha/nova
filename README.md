@@ -24,7 +24,7 @@ Nova is a sleek, modern space exploration blog designed to keep you informed abo
 
 - **Node.js** (v14 or higher)
 - **Yarn** or **npm**
-- **React**
+- **React (Vite)**
 
 ### Steps to Install
 
@@ -52,7 +52,7 @@ Nova is a sleek, modern space exploration blog designed to keep you informed abo
    ```bash
    npm run dev
    ```
-   This will run the app in development mode. Open http://localhost:3000 to view it in the browser.
+   This will run the app in development mode. Open http://localhost:5173 to view it in the browser.
 
 ## 🌍 How To Contribute
 
