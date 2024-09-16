@@ -40,3 +40,10 @@ export type InteractionContextType = {
   removeCommentFromPost: (postId: number, id: number) => void;
   retrievePostComments: (postId: number) => IComment[];
 };
+
+export type BookmarkContextType = {
+  posts: IBlog[];
+  addToBookmark: (post: IBlog) => void;
+  removeFromBookmark: (postId: number) => void;
+  isBookmarked: (postId: number) => boolean;
+};

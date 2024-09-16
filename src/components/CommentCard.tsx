@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MdOutlineDelete } from 'react-icons/md';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 import { IComment } from '@/types';
 import classNames from '@/components/styles/CommentCard.module.scss';
@@ -46,7 +46,7 @@ const CommentCard = ({
     >
       <div className={classNames.heading}>
         <span>{comment.authorName}</span>
-        <MdOutlineDelete
+        <FaRegTrashAlt
           className={classNames.delete}
           onClick={() => removeComment(postId, comment.id)}
         />

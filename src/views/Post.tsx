@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { TfiCommentAlt } from 'react-icons/tfi';
-import { BsBookmarkPlus, BsBookmarkCheck } from 'react-icons/bs';
+import { BsBookmarkPlus, BsBookmarkCheckFill } from 'react-icons/bs';
 
 import { NewsletterSignup, CommentsPanel } from '@/components';
 import { useInteraction } from '@/context/interaction.context';
-import { IBlog, InteractionContextType } from '@/types';
+import { useBookmark } from '@/context/bookmark.context';
+import { IBlog, InteractionContextType, BookmarkContextType } from '@/types';
 import { formatDate } from '@/utils/helpers';
 import classNames from '@/views/styles/Post.module.scss';
 
@@ -21,6 +22,9 @@ const Post = () => {
     addCommentToPost,
     removeCommentFromPost,
   } = useInteraction() as InteractionContextType;
+
+  const { isBookmarked, addToBookmark, removeFromBookmark } =
+    useBookmark() as BookmarkContextType;
 
   const feedbackOptions = [
     {
@@ -37,8 +41,15 @@ const Post = () => {
     },
     {
       id: 3,
-      icon: BsBookmarkPlus,
-      altIcon: BsBookmarkCheck,
+      icon: isBookmarked(post.id) ? BsBookmarkCheckFill : BsBookmarkPlus,
+      action: () => {
+        // Creates a sought of toggle-like effect for the bookmarking feature.
+        if (!isBookmarked(post.id)) {
+          addToBookmark(post);
+        } else {
+          removeFromBookmark(post.id);
+        }
+      },
     },
   ];
 

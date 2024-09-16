@@ -18,6 +18,7 @@ import {
   getFeaturedBlogPosts,
 } from '@/views/utils';
 import { InteractionProvider } from '@/context/interaction.context.tsx';
+import { BookmarkProvider } from '@/context/bookmark.context.tsx';
 import './index.scss';
 
 const router = createBrowserRouter([
@@ -64,7 +65,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <InteractionProvider>
-      <RouterProvider router={router} />
+      <BookmarkProvider>
+        <RouterProvider router={router} />
+      </BookmarkProvider>
     </InteractionProvider>
   </StrictMode>,
 );
