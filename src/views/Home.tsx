@@ -36,7 +36,10 @@ const Home: FC = () => {
         <h3>Featured Blog Posts</h3>
         <div>
           {loaderData.map((data) => (
-            <PostCard post={data} />
+            <PostCard
+              post={data}
+              featured
+            />
           ))}
         </div>
       </section>

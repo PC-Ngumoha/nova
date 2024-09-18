@@ -5,7 +5,13 @@ import { IBlog } from '@/types';
 import { formatDate } from '@/utils/helpers';
 import classNames from '@/components/styles/PostCard.module.scss';
 
-const PostCard = ({ post }: { post: IBlog }) => {
+const PostCard = ({
+  post,
+  featured = false,
+}: {
+  post: IBlog;
+  featured?: boolean;
+}) => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -13,7 +19,7 @@ const PostCard = ({ post }: { post: IBlog }) => {
   return (
     <div
       key={post.id}
-      className={classNames.card}
+      className={featured ? classNames.featureCard : classNames.card}
     >
       <img src={post.avatar} />
       <div className={classNames.preview}>

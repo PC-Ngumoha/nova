@@ -142,10 +142,21 @@
     }
 
     .body {
+      height: 60%;
       position: absolute;
       top: 15%;
       left: 45%;
       padding: 2rem;
+
+      span {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+        word-spacing: 0.2rem;
+      }
     }
   }
 

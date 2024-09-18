@@ -2,7 +2,7 @@
 
 .card {
   width: 90%;
-  height: 400px;
+  height: 40rem;
   display: flex;
   flex-direction: column;
   background-color: $color_thick_shade;
@@ -84,6 +84,89 @@
   }
 }
 
+.featureCard {
+  width: 90%;
+  height: 40rem;
+  position: relative;
+  border-radius: 1rem;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    z-index: -10;
+  }
+
+  .preview {
+    height: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: $color_white;
+    background-color: rgba(0, 0, 0, 0.57); // see-through black layer
+    border-radius: 1rem;
+
+    .date {
+      display: inline-block;
+      width: 100%;
+      padding-left: 1rem;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      text-align: center;
+      letter-spacing: 0.2rem;
+      font-weight: bold;
+    }
+
+    .snippet {
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.1rem;
+    }
+
+    .extras {
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        display: flex;
+        font-size: 2rem;
+        width: 15%;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      a {
+        text-decoration: none;
+        width: 40%;
+        padding: 0.5rem;
+        font-size: 1.7rem;
+        background-color: transparent;
+        text-transform: lowercase;
+        border: 0;
+        color: inherit;
+        text-align: right;
+        transition: all 0.2s ease;
+
+        &:hover {
+          letter-spacing: 0.2rem;
+          color: $color_neon_light;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+
 /* Larger screens */
 @media (min-width: 768px) {
   .card {
@@ -112,6 +195,25 @@
       .extras {
         span {
           width: 11%;
+        }
+      }
+    }
+  }
+
+  .featureCard {
+    height: 30rem;
+
+    .preview {
+      background-color: transparent;
+      transition: all 0.4s ease-in;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.57); // see-through black layer
+      }
+
+      .extras {
+        span {
+          width: 7%;
         }
       }
     }
