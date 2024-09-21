@@ -1,6 +1,12 @@
+import { FC } from 'react';
+
 import classNames from '@/components/styles/NewsletterSignup.module.scss';
 
-const NewsletterSignup = ({ authorName = '' }: { authorName?: string }) => {
+type NewsletterSignupProps = { authorName?: string };
+
+const NewsletterSignup: FC<NewsletterSignupProps> = ({
+  authorName = '',
+}): JSX.Element => {
   return (
     <div className={classNames.newsletter}>
       <h3>Subscribe to {authorName !== '' ? 'my' : 'our'} newsletter</h3>

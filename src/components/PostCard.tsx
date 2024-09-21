@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -5,13 +6,15 @@ import { IBlog } from '@/types';
 import { formatDate } from '@/utils/helpers';
 import classNames from '@/components/styles/PostCard.module.scss';
 
-const PostCard = ({
-  post,
-  featured = false,
-}: {
+type PostCardProps = {
   post: IBlog;
   featured?: boolean;
-}) => {
+};
+
+const PostCard: FC<PostCardProps> = ({
+  post,
+  featured = false,
+}): JSX.Element => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -28,8 +31,8 @@ const PostCard = ({
         </span>
         <span className={classNames.title}>{post.title}</span>
         <span className={classNames.snippet}>
-          {post.body.length >= 30
-            ? post.body.substring(0, 50) + '...'
+          {post.body.length >= 80
+            ? post.body.substring(0, 100) + '...'
             : post.body}
         </span>
         <div className={classNames.extras}>

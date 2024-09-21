@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { GiGalaxy } from 'react-icons/gi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
@@ -23,7 +24,7 @@ const socialLinks = [
   },
 ];
 
-const Footer = () => {
+const Footer: FC = (): JSX.Element => {
   return (
     <footer className={classNames.footer}>
       <span className={classNames.logo}>

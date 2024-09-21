@@ -1,20 +1,22 @@
-import { useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 
 import { IComment } from '@/types';
 import classNames from '@/components/styles/CommentCard.module.scss';
 
-// TODO: Eliminate prop drilling of too many parameters
-// TODO: Make it so that extremely long text gets cut progressively
-const CommentCard = ({
-  comment,
-  postId,
-  removeComment,
-}: {
+type CommentCardProps = {
   comment: IComment;
   postId: number;
   removeComment: (postId: number, id: number) => void;
-}) => {
+};
+
+// TODO: Eliminate prop drilling of too many parameters
+// TODO: Make it so that extremely long text gets cut progressively
+const CommentCard: FC<CommentCardProps> = ({
+  comment,
+  postId,
+  removeComment,
+}): JSX.Element => {
   const [body, setBody] = useState<string[]>([]);
   const [limit, setLimit] = useState<number>(1);
 

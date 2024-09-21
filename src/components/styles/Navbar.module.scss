@@ -1,7 +1,5 @@
 @import '../../styles/main';
 
-// Following a Mobile first approach to styling the webpage
-
 /* STYLES FOR NAVBAR MAIN COMPONENT */
 .navbar {
   font-family: $heading_font_stack;
@@ -10,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
-  // border-bottom: 0.2rem solid grey;
   box-shadow: 0 0.4rem 1.5rem $color_subtle_shade;
 
   .logo {
@@ -28,7 +25,6 @@
   .pages {
     flex: 2;
     display: none;
-    // display: flex;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
@@ -78,7 +74,11 @@
   }
 }
 
-/* STYLES FOR NAVBAR SIDEBAR COMPONENT */
+/* STYLES FOR NAVBAR SIDEBAR COMPONENT
+NOTE:
+- This component does not need to be styled for bigger screens because
+it will only be visible or usable on mobile screens anyway.
+*/
 .sidebar {
   position: fixed;
   top: 0;

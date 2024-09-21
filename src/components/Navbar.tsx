@@ -39,10 +39,8 @@ const pageLinks = [
 /**
  * Custom utility hook
  */
-const useToggle = () => {
+const useOpenAndClose = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen((prev) => !prev);
 
   const open = () => setIsOpen(true);
 
@@ -50,28 +48,32 @@ const useToggle = () => {
 
   return {
     isOpen,
-    toggle,
     open,
     close,
   };
 };
 
-/**
- * SideBar utility component
- */
-const SideBar = ({
-  handleClose,
-  open,
-}: {
+type SidebarProps = {
   handleClose: () => void;
   open: boolean;
-}) => {
+};
+
+/**
+ * SideBar utility component
+ *
+ * @param handleClose - handles closing the sidebar
+ * @param open - is sidebar open ?
+ *
+ * @returns <SideBar />
+ */
+const SideBar: FC<SidebarProps> = ({ handleClose, open }): JSX.Element => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Helpful for keeping of first renders of this component
+  // Keeps track of components first render
   const hasPreviouslyRendered = useRef(false);
 
+  // Toggles mounting and unmounting of component with change in location
   useEffect(() => {
     if (hasPreviouslyRendered.current) {
       handleClose();
@@ -88,16 +90,17 @@ const SideBar = ({
           : classNames.sidebar
       }
     >
-      {/* <button onClick={() => handleClose()}>Close Me</button>
-       */}
+      {/* Close Button */}
       <IoCloseCircleOutline
         onClick={() => handleClose()}
         className={classNames.closeButton}
       />
+      {/* Logo */}
       <div className={classNames.logo}>
         <GiGalaxy />
         <h1>Nova</h1>
       </div>
+      {/* Page Links */}
       <div className={classNames.pages}>
         {pageLinks.map((item) => (
           <span key={item.id}>
@@ -116,10 +119,11 @@ const SideBar = ({
 
 /**
  * Navbar main component
+ *
  * @returns <Navbar />
  */
-const Navbar: FC = () => {
-  const { isOpen, open, close } = useToggle();
+const Navbar: FC = (): JSX.Element => {
+  const { isOpen, open, close } = useOpenAndClose();
   const navigate = useNavigate();
 
   return (

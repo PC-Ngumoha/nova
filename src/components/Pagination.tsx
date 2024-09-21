@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { concatClasses } from '@/utils/helpers';
 import classNames from '@/components/styles/Pagination.module.scss';
 
-const Pagination = ({
-  length,
-  perPage,
-  currentPage,
-  handlePageChange,
-}: {
+type PaginationProps = {
   length: number;
   perPage: number;
   currentPage: number;
   handlePageChange: (value: number) => void;
-}) => {
-  // const pages: number[] = [];
+};
+
+const Pagination: FC<PaginationProps> = ({
+  length,
+  perPage,
+  currentPage,
+  handlePageChange,
+}): JSX.Element => {
   const [pages, setPages] = useState<number[]>([]);
 
   useEffect(() => {
