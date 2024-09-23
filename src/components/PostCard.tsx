@@ -11,6 +11,14 @@ type PostCardProps = {
   featured?: boolean;
 };
 
+/**
+ * Displays a summary card for individual posts
+ *
+ * @param post
+ * @param featured
+ *
+ * @returns <PostCard />
+ */
 const PostCard: FC<PostCardProps> = ({
   post,
   featured = false,

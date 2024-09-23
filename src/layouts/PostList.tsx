@@ -1,10 +1,20 @@
-import { useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 
 import { IBlog } from '@/types';
 import { PostCard, Pagination } from '@/components';
 import classNames from '@/layouts/styles/PostList.module.scss';
 
-const PostList = ({ data, loading }: { data: IBlog[]; loading: boolean }) => {
+type PostListProps = { data: IBlog[]; loading: boolean };
+
+/**
+ * Displays a list of posts
+ *
+ * @param data
+ * @param loading
+ *
+ * @returns <PostList />
+ */
+const PostList: FC<PostListProps> = ({ data, loading }): JSX.Element => {
   const [blogList, setBlogList] = useState<IBlog[] | undefined>();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
@@ -13,6 +23,7 @@ const PostList = ({ data, loading }: { data: IBlog[]; loading: boolean }) => {
     setCurrentPage(idx);
   };
 
+  // Utility: Aids in the pagination of the posts displayed.
   useEffect(() => {
     const start = (currentPage - 1) * postsPerPage;
     const end = currentPage * postsPerPage;
@@ -21,6 +32,7 @@ const PostList = ({ data, loading }: { data: IBlog[]; loading: boolean }) => {
     setBlogList(displayedPage);
   }, [currentPage, data]);
 
+  // State: While content still loading
   if (loading) {
     return (
       <div className={classNames.message}>

@@ -24,6 +24,11 @@ const socialLinks = [
   },
 ];
 
+/**
+ * Displays a footer for pages on the website.
+ *
+ * @returns <Footer />
+ */
 const Footer: FC = (): JSX.Element => {
   return (
     <footer className={classNames.footer}>

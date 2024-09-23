@@ -10,6 +10,16 @@ type PaginationProps = {
   handlePageChange: (value: number) => void;
 };
 
+/**
+ * Displays a set of buttons representing pages of paginated content
+ *
+ * @param length
+ * @param perPage
+ * @param currentPage
+ * @param handlePageChange
+ *
+ * @returns <Pagination />
+ */
 const Pagination: FC<PaginationProps> = ({
   length,
   perPage,

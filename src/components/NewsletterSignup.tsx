@@ -4,6 +4,13 @@ import classNames from '@/components/styles/NewsletterSignup.module.scss';
 
 type NewsletterSignupProps = { authorName?: string };
 
+/**
+ * Displays a newsletter signup form.
+ *
+ * @param authorName
+ *
+ * @returns <NewsletterSignup />
+ */
 const NewsletterSignup: FC<NewsletterSignupProps> = ({
   authorName = '',
 }): JSX.Element => {

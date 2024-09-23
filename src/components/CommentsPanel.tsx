@@ -14,6 +14,18 @@ type CommentsPanelProps = {
   removeComment: (postId: number, commentId: number) => void;
 };
 
+/**
+ * Displays a panel where the user can make and view comments.
+ *
+ * @param open
+ * @param setOpen
+ * @param postId
+ * @param comments
+ * @param addComment
+ * @param removeComment
+ *
+ * @returns <CommentsPanel />
+ */
 const CommentsPanel: FC<CommentsPanelProps> = ({
   open,
   setOpen,
